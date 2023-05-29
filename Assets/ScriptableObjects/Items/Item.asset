@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6ff06a2ee4dde41bb87b96421f514a, type: 3}
+  m_Name: Item
+  m_EditorClassIdentifier: 
+  category: 0
+  ItemName: Oil
+  ItemCode: 1
+  OuterFrame: {fileID: 8099985516172538361, guid: 9322735d9a0dbca4d9fb7a0713aeb504,
+    type: 3}
+  ItemIcon: {fileID: 21300000, guid: 35d7e6588f1f34db1b9a5e62f4efdf77, type: 3}
+  ItemDescription: Basic Item to sell
+  ItemEffectList:
+  - {fileID: 11400000, guid: 07dd2b89de2b8f14aaa3c11194e5ac0c, type: 2}
+  Cost: 40
