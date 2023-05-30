@@ -11,9 +11,9 @@ public class ItemInfo : ScriptableObject {
     public string ItemName;
     public int ItemCode;
 
-
     //UI
     public GameObject OuterFrame;
+    public Sprite ItemFrame;
     public Sprite ItemIcon;
     public string ItemDescription;
     public List<ItemEffectInfo> ItemEffectList;

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6ff06a2ee4dde41bb87b96421f514a, type: 3}
+  m_Name: CookingPod
+  m_EditorClassIdentifier: 
+  category: 3
+  ItemName: CookingPod
+  ItemCode: 2001
+  OuterFrame: {fileID: 0}
+  ItemIcon: {fileID: 0}
+  ItemDescription: 
+  ItemEffectList: []
+  Cost: 0

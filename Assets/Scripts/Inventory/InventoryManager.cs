@@ -3,29 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryManager : SingletonBehaviour<InventoryManager> {
-    private List<Item> items = new List<Item>();
+    private List<OwnedItem> ownedItems = new List<OwnedItem>();
     private List<CookedItem> cookedItems = new List<CookedItem>();
 
-
     public void AddItem(Item item) {
-        items.Add(item);
+        OwnedItem currentItem = SearchItem(item); // လက်ရှိ Item ကိုင်ထားလားရှာ 
+        if (currentItem != null) { // ရှိရင်အရေအတွက်တိုး
+            currentItem.count++;
+        } 
+        else { // မရှိရင် အသစ်ထည့်
+            ownedItems.Add(new OwnedItem(item, 1));
+        }
+        UIRenender();
     }
 
-    public Item SearchItem(Item item) {
-        for (int j = 0; j < items.Count; j++) {
-            if (item.item.ItemCode == items[j].item.ItemCode) {
-                return items[j];
+    public OwnedItem SearchItem(Item item) {
+        for (int j = 0; j < ownedItems.Count; j++) {
+            if (item.item.ItemCode == ownedItems[j].item.item.ItemCode) {
+                return ownedItems[j];
             }
         }
         return null;
     }
 
-    void Start() {
-
-    }
-
-    // Update is called once per frame
-    void Update() {
-
+    public void UIRenender() {
+        UIManager.Instance().CreateItems(ownedItems);
     }
 }

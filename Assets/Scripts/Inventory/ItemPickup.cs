@@ -22,7 +22,7 @@ public class ItemPickup : MonoBehaviour {
                     Debug.Log(i.item.category + " : " + i.item.name);
                     i.RemoveItem();
                 } else if (i.item.category == ItemInfo.Category.Cook) {
-                    UIManager.Instance().ShowPanel("toSell");
+                    UIManager.Instance().ShowPanel("toCook");
                 } else if (i.item.category ==   ItemInfo.Category.Sell) {
                     UIManager.Instance().ShowPanel("toSell");
                 } else if (i.item.category == ItemInfo.Category.Door) {
