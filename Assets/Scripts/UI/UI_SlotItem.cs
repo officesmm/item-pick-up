@@ -6,26 +6,24 @@ using UnityEngine.UI;
 
 public class UI_SlotItem : MonoBehaviour {
 
-    public Image imageFrame;
-    public Image imageIcon;
-    public TMP_Text textItemCount;
+    public Image IMG_Frame;
+    public Image IMG_Icon;
+    public TMP_Text TXT_ItemCount;
+    public Button BTN_Action;
 
-    ItemInfo m_ItemInfo;
-
-    public void SetItemInfo(ItemInfo itemInfo) {
-        m_ItemInfo = itemInfo;
-        SetOuterFrame();
-        SetUIFrame();
+    private OwnedItem m_OwnedItem;
+    private void Start() {
+        BTN_Action.onClick.AddListener(delegate { OnClickShowItemInfo(); });
     }
 
-    private void SetOuterFrame() {
-        imageFrame.sprite = m_ItemInfo.ItemFrame;
+    public void SetOwnedItem(OwnedItem ownedItem) {
+        m_OwnedItem = ownedItem;
+        IMG_Frame.sprite = ownedItem.item.item.OuterFrameImage;
+        IMG_Icon.sprite = ownedItem.item.item.ItemIcon;
+        TXT_ItemCount.text = ownedItem.count.ToString();
     }
 
-    private void SetUIFrame() {
-        imageIcon.sprite = m_ItemInfo.ItemIcon;
-    }
-    public void SetCount(int i) {
-        textItemCount.text = i.ToString();
+    private void OnClickShowItemInfo() {
+        UIManager.Instance().ShowItemDetail(m_OwnedItem);
     }
 }
