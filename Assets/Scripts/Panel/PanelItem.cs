@@ -27,7 +27,5 @@ public class PanelItem : MonoBehaviour {
         TMP_ItemCategory.text = m_OwnedItem.item.item.category.ToString();
         TMP_ItemName.text = m_OwnedItem.item.item.ItemName;
         TMP_ItemDescription.text = m_OwnedItem.item.item.ItemDescription;
-
-        
     }
 }

@@ -16,6 +16,7 @@ public class UIManager : SingletonBehaviour<UIManager> {
     public GameObject Pref_EmptySlotFail;
 
     private PanelItem panelAction;
+    private OwnedItem CurrentSelectedOwnedItem;
     void Update() {
         if (Input.GetKeyDown(KeyCode.Q)) {
             Panel_Inventory.SetActive(!Panel_Inventory.activeSelf);
@@ -69,7 +70,11 @@ public class UIManager : SingletonBehaviour<UIManager> {
         OuterFrame.transform.SetParent(Content_ItemHandlerRaw.transform, false);
     }
 
+    public OwnedItem GetCurrentSelectedOwnedItem() {
+        return CurrentSelectedOwnedItem;
+    }
     public void ShowItemDetail(OwnedItem ownedItem) {
+        CurrentSelectedOwnedItem = ownedItem;
         panelAction.Init(ownedItem);
     }
 }
