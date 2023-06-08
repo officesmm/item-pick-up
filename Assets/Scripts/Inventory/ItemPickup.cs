@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour {
     public float PackableRadius = 1.0f;
+
     void Update() {
         RaycastHit2D[] allInteractable = Physics2D.CircleCastAll(transform.position, PackableRadius, Vector2.zero);
         foreach (RaycastHit2D ele in allInteractable) {

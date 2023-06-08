@@ -93,4 +93,8 @@ public class InventoryUIManager : SingletonBehaviour<InventoryUIManager> {
         CurrentSelectedOwnedItem = ownedItem;
         panelAction.Init(ownedItem);
     }
+
+    public void BTN_CloseInventory() {
+        Panel_Inventory.SetActive(false);
+    }
 }
