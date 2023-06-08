@@ -9,6 +9,7 @@ public class ItemPickup : MonoBehaviour {
         foreach (RaycastHit2D ele in allInteractable) {
             if (ele.collider.tag == "interact") {
                 InteractAction(ele.collider.gameObject);
+                break;
             }
         }
     }
@@ -21,9 +22,9 @@ public class ItemPickup : MonoBehaviour {
                     InventoryManager.Instance().AddItem(i);
                     i.RemoveItem();
                 } else if (i.item.category == ItemInfo.Category.Cook) {
-                    UIManager.Instance().ShowPanel("toCook");
+                    InventoryUIManager.Instance().ShowPanel("toCook");
                 } else if (i.item.category ==   ItemInfo.Category.Sell) {
-                    UIManager.Instance().ShowPanel("toSell");
+                    InventoryUIManager.Instance().ShowPanel("toSell");
                 } else if (i.item.category == ItemInfo.Category.Door) {
                     i.Action();
                 } else if (i.item.category == ItemInfo.Category.Rotate) {
@@ -32,10 +33,6 @@ public class ItemPickup : MonoBehaviour {
 
             }
         }
-    }
-
-    private void OnDrawGizmos() {
-        Gizmos.DrawWireSphere(transform.position, PackableRadius);
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -48,5 +45,9 @@ public class ItemPickup : MonoBehaviour {
         if (collision.tag == "interact") {
             collision.GetComponent<Item>().HideHighlight();
         }
+    }   
+    
+    private void OnDrawGizmos() {
+        Gizmos.DrawWireSphere(transform.position, PackableRadius);
     }
 }

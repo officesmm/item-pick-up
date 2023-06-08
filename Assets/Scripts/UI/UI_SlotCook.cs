@@ -15,43 +15,51 @@ public class UI_SlotCook : MonoBehaviour {
     private OwnedItem PreCookItemAdded = null;
 
     private bool added = false;
-
+    private Color tempColor = new Color();
     private void Start() {
-        added = false;
         PreCookItemAdded = null;
+        added = false;
+        tempColor.a = 0;
         BTN_Action.onClick.AddListener(delegate { OnClickAddorRemove(); });
     }
     private void OnClickAddorRemove() {
-        OwnedItem selectedItem = UIManager.Instance().GetCurrentSelectedOwnedItem();
+        OwnedItem selectedItem = InventoryUIManager.Instance().GetCurrentSelectedOwnedItem();
+        
         if (selectedItem != null) {
             if (SlotFrameCategory == selectedItem.item.item.frameCategory) {
                 if (!added) {
                     PreCookItemAdded = selectedItem;
+                    IMG_Icon.sprite = PreCookItemAdded.item.item.ItemIcon;
+                    IMG_Icon.color = Color.white;
                     GO_SignAdd.SetActive(false);
                     GO_SignRemove.SetActive(true);
                     added = true;
                 } else {
-                    PreCookItemAdded = null;
-                    GO_SignAdd.SetActive(true);
-                    GO_SignRemove.SetActive(false);
-                    added = false;
+                    ClearSlot();
                 }
-            } 
-            else {
+            } else {
                 if (!added) {
                     Debug.Log("No allow to add");
                 } else {
-                    PreCookItemAdded = null;
-                    GO_SignAdd.SetActive(true);
-                    GO_SignRemove.SetActive(false);
-                    added = false;
+                    ClearSlot();
                 }
-            } 
+            }
+        } else {
+            Debug.Log("Nothing is selected");
         }
     }
 
     public OwnedItem GetPreCookItemAdded() {
         return PreCookItemAdded;
+    }
+
+    public void ClearSlot() {
+        PreCookItemAdded = null;
+        IMG_Icon.sprite = null;
+        IMG_Icon.color = tempColor;
+        GO_SignAdd.SetActive(true);
+        GO_SignRemove.SetActive(false);
+        added = false;
     }
 
 }

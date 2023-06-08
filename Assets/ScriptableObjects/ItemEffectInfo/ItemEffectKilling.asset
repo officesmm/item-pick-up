@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be2470ddbfa54914ba40a18f70da5bc8, type: 3}
-  m_Name: ItemEffectInfo
+  m_Name: ItemEffectKilling
   m_EditorClassIdentifier: 
   EffectIcon: {fileID: 21300000, guid: 0358e94906c704657ab9ca0a8ce5a588, type: 3}
   EffectTitle: Killing
-  EffectDescription: Killing More
+  EffectDescription: Killing 1 Random Enemy

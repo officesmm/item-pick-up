@@ -9,9 +9,7 @@ public class PanelItemView : PanelItem {
     public GameObject Pref_SlotItemEffect;
     public override void OnClickedDisplay() {
         base.OnClickedDisplay();
-        while (Panel_ItemEffect.transform.childCount > 0) {
-            DestroyImmediate(Panel_ItemEffect.transform.GetChild(0).gameObject);
-        }
+        ClearAllUIChildEffect();
         GameObject GO_SlotItemEffect = Instantiate(Pref_SlotItemEffect, transform.position, Quaternion.identity);
         GO_SlotItemEffect.transform.SetParent(Panel_ItemEffect.transform, false);
         GO_SlotItemEffect.GetComponent<UI_SlotItemEffect>().Init(
@@ -19,5 +17,16 @@ public class PanelItemView : PanelItem {
             m_OwnedItem.item.item.ItemEffectList[0].EffectTitle,
             m_OwnedItem.item.item.ItemEffectList[0].EffectDescription
             );
+    }
+
+    public override void ClearAllPreset() {
+        base.ClearAllPreset();
+        ClearAllUIChildEffect();
+    }
+
+    private void ClearAllUIChildEffect() {
+        while (Panel_ItemEffect.transform.childCount > 0) {
+            DestroyImmediate(Panel_ItemEffect.transform.GetChild(0).gameObject);
+        }
     }
 }

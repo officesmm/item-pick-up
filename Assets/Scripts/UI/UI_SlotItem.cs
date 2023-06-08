@@ -24,6 +24,6 @@ public class UI_SlotItem : MonoBehaviour {
     }
 
     private void OnClickShowItemInfo() {
-        UIManager.Instance().ShowItemDetail(m_OwnedItem);
+        InventoryUIManager.Instance().ShowItemDetail(m_OwnedItem);
     }
 }

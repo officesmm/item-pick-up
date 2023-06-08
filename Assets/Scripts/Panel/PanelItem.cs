@@ -28,4 +28,13 @@ public class PanelItem : MonoBehaviour {
         TMP_ItemName.text = m_OwnedItem.item.item.ItemName;
         TMP_ItemDescription.text = m_OwnedItem.item.item.ItemDescription;
     }
+
+    public virtual void ClearAllPreset() {
+        IMG_OuterFrame.sprite = RLOADER.SPRITE_EMPTY_FRAME;
+        IMG_ItemImage.sprite = RLOADER.SPRITE_EMPTY_FRAME;
+        TMP_ItemCount.text = "";
+        TMP_ItemCategory.text = "";
+        TMP_ItemName.text = "";
+        TMP_ItemDescription.text = "";
+    }
 }

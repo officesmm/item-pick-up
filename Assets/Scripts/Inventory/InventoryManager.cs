@@ -27,6 +27,6 @@ public class InventoryManager : SingletonBehaviour<InventoryManager> {
     }
 
     public void UIRenender() {
-        UIManager.Instance().CreateItems(ownedItems);
+        InventoryUIManager.Instance().CreateItems(ownedItems);
     }
 }
