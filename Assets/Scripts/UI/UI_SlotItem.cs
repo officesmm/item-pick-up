@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class UI_SlotItem : MonoBehaviour {
 
+    public GameObject GO_SelectionFrame;
     public Image IMG_Frame;
     public Image IMG_Icon;
     public TMP_Text TXT_ItemCount;
@@ -13,6 +14,7 @@ public class UI_SlotItem : MonoBehaviour {
 
     private OwnedItem m_OwnedItem;
     private void Start() {
+        GO_SelectionFrame.SetActive(false);
         BTN_Action.onClick.AddListener(delegate { OnClickShowItemInfo(); });
     }
 
@@ -25,5 +27,16 @@ public class UI_SlotItem : MonoBehaviour {
 
     private void OnClickShowItemInfo() {
         InventoryUIManager.Instance().ShowItemDetail(m_OwnedItem);
+    }
+
+    public OwnedItem GetOwnedItem() {
+        return m_OwnedItem;
+    }
+
+    public void ActiveSelectedFrame() {
+        GO_SelectionFrame.SetActive(true);
+    }
+    public void DeactiveSelectedFrame() {
+        GO_SelectionFrame.SetActive(false);
     }
 }

@@ -37,7 +37,18 @@ public class InventoryManager : SingletonBehaviour<InventoryManager> {
         }
         return null;
     }
-
+    public void SortItem() {
+        for (int i = 0; i < ownedItems.Count; i++) {
+            for (int j = 0; j < ownedItems.Count - 1; j++) {
+                if (ownedItems[j].item.item.ItemCode > ownedItems[j+1].item.item.ItemCode) {
+                    OwnedItem temp = ownedItems[j];
+                    ownedItems[j] = ownedItems[j + 1];
+                    ownedItems[j + 1] = temp;
+                }
+            }
+        }
+    }
+    
     public void UIRenender() {
         InventoryUIManager.Instance().CreateItems(ownedItems);
     }
