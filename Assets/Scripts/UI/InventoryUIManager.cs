@@ -32,6 +32,7 @@ public class InventoryUIManager : SingletonBehaviour<InventoryUIManager> {
         if (Input.GetKeyDown(KeyCode.B)) {
             InventoryManager.Instance().SortItem();
             InventoryManager.Instance().UIRenender();
+            SelectFirstItem();
         }
     }
 
@@ -48,7 +49,6 @@ public class InventoryUIManager : SingletonBehaviour<InventoryUIManager> {
                 break;
             case "toSell":
                 Panel_Inventory.SetActive(!Panel_Inventory.activeSelf);
-                SelectFirstItem();
                 Panel_ActionCook.SetActive(false);
                 Panel_ActionView.SetActive(false);
                 Panel_ActionSell.SetActive(true);
@@ -63,14 +63,26 @@ public class InventoryUIManager : SingletonBehaviour<InventoryUIManager> {
     }
 
     public void CreateItems(List<OwnedItem> OwnedItems) {
-        RemovedAll();
+        RemovedAllItem();
         foreach (OwnedItem ele in OwnedItems) {
-            AddItems(ele);
+            if (ele.item.item.cookingStatus == ItemInfo.CookingStatus.Raw) { 
+                AddItems(ele);
+            }
         }
         FailEmpty();
     }
 
-    private void RemovedAll() { // cooked will add later
+    public OwnedItem GetCurrentSelectedOwnedItem() {
+        return CurrentSelectedOwnedItem;
+    }
+    public void ShowItemDetail(OwnedItem ownedItem) {
+        DeselectAllFrame();
+        SearchItemByOwnedItem(ownedItem).GetComponent<UI_SlotItem>().ActiveSelectedFrame();
+        CurrentSelectedOwnedItem = ownedItem;
+        panelAction.Init(ownedItem);
+    }
+
+    private void RemovedAllItem() { // cooked will add later
         while (Content_ItemHandlerRaw.transform.childCount > 0) {
             DestroyImmediate(Content_ItemHandlerRaw.transform.GetChild(0).gameObject);
         }
@@ -97,18 +109,12 @@ public class InventoryUIManager : SingletonBehaviour<InventoryUIManager> {
         }
     }
 
-    public OwnedItem GetCurrentSelectedOwnedItem() {
-        return CurrentSelectedOwnedItem;
-    }
-    public void ShowItemDetail(OwnedItem ownedItem) {
-        DeselectAllFrame();
-        SearchItemByOwnedItem(ownedItem).GetComponent<UI_SlotItem>().ActiveSelectedFrame();
-        CurrentSelectedOwnedItem = ownedItem;
-        panelAction.Init(ownedItem);
-    }
     private void SelectFirstItem() {
-        if(GO_RawItemsList.Count > 0) { 
-            ShowItemDetail(GO_RawItemsList[0].GetComponent<UI_SlotItem>().GetOwnedItem());
+        DeselectAllFrame();
+        if (GO_RawItemsList.Count > 0) {
+            GO_RawItemsList[0].GetComponent<UI_SlotItem>().ActiveSelectedFrame();
+            CurrentSelectedOwnedItem = GO_RawItemsList[0].GetComponent<UI_SlotItem>().GetOwnedItem();
+            panelAction.Init(CurrentSelectedOwnedItem);
         }
     }
     private void DeselectAllFrame() {
@@ -116,8 +122,7 @@ public class InventoryUIManager : SingletonBehaviour<InventoryUIManager> {
             ele.GetComponent<UI_SlotItem>().DeactiveSelectedFrame();
         }
     }
-
-    public GameObject SearchItemByOwnedItem(OwnedItem ownedItem) {
+    private GameObject SearchItemByOwnedItem(OwnedItem ownedItem) {
         foreach (GameObject ele in GO_RawItemsList) {
             if (ele.GetComponent<UI_SlotItem>().GetOwnedItem().item.item.ItemCode == ownedItem.item.item.ItemCode) {
                 return ele;

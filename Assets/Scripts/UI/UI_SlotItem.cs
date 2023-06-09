@@ -14,7 +14,6 @@ public class UI_SlotItem : MonoBehaviour {
 
     private OwnedItem m_OwnedItem;
     private void Start() {
-        GO_SelectionFrame.SetActive(false);
         BTN_Action.onClick.AddListener(delegate { OnClickShowItemInfo(); });
     }
 

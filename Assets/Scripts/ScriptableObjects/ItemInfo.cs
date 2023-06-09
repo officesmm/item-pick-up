@@ -10,6 +10,8 @@ public class ItemInfo : ScriptableObject {
     public Category category;
     public enum FrameCategory { Liquid, Meal, Fruit }
     public FrameCategory frameCategory;
+    public enum CookingStatus { Raw, Cooked }
+    public CookingStatus cookingStatus = CookingStatus.Raw;
     public string ItemName;
     public int ItemCode;
 

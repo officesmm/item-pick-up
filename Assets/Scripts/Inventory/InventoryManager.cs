@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class InventoryManager : SingletonBehaviour<InventoryManager> {
     private List<OwnedItem> ownedItems = new List<OwnedItem>();
-    private List<CookedItem> cookedItems = new List<CookedItem>();
 
-    public void AddItem(Item item) {
+    public void AddOwnedItem(Item item) {
         OwnedItem currentItem = SearchItem(item); 
         if (currentItem != null) {
             currentItem.AddOwnedItem();
