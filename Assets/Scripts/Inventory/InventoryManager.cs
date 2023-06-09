@@ -7,14 +7,26 @@ public class InventoryManager : SingletonBehaviour<InventoryManager> {
     private List<CookedItem> cookedItems = new List<CookedItem>();
 
     public void AddItem(Item item) {
-        OwnedItem currentItem = SearchItem(item); // လက်ရှိ Item ကိုင်ထားလားရှာ 
-        if (currentItem != null) { // ရှိရင်အရေအတွက်တိုး
-            currentItem.count++;
+        OwnedItem currentItem = SearchItem(item); 
+        if (currentItem != null) {
+            currentItem.AddOwnedItem();
         } 
-        else { // မရှိရင် အသစ်ထည့်
+        else {
             ownedItems.Add(new OwnedItem(item, 1));
         }
         UIRenender();
+    }
+
+    public void RemoveItem(Item item) {
+        OwnedItem currentItem = SearchItem(item);
+        if (currentItem != null) {
+            bool isRemain = currentItem.RemoveOwnedItem();
+            if (!isRemain) {
+                ownedItems.Remove(currentItem);
+            }
+        } else {
+            Debug.Log("This item is not in the inventory");
+        }
     }
 
     public OwnedItem SearchItem(Item item) {

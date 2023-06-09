@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 28524126}
   - component: {fileID: 28524131}
   m_Layer: 5
-  m_Name: UIController
+  m_Name: InvenctoryUIController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
