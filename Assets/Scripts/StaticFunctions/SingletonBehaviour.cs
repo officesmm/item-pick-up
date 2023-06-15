@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-abstract public class SingletonBehaviour<T> : MonoBehaviour where T : MonoBehaviour {
+public abstract class SingletonBehaviour<T> : MonoBehaviour where T : MonoBehaviour {
     //Singleton action
     private static T instance;
     public static T Instance() {

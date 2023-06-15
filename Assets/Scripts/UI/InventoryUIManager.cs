@@ -21,17 +21,17 @@ public class InventoryUIManager : SingletonBehaviour<InventoryUIManager> {
     public List<GameObject> GO_RawItemsList = new List<GameObject>();
     void Update() {
         if (Input.GetKeyDown(KeyCode.Q)) {
-            Panel_Inventory.SetActive(!Panel_Inventory.activeSelf); 
+            Panel_Inventory.SetActive(!Panel_Inventory.activeSelf);
             Panel_ActionView.SetActive(true);
             Panel_ActionCook.SetActive(false);
             Panel_ActionSell.SetActive(false);
             panelAction = Panel_ActionView.GetComponent<PanelItemView>();
-            panelAction.ClearAllPreset(); 
+            panelAction.ClearAllPreset();
             SelectFirstItem();
         }
         if (Input.GetKeyDown(KeyCode.B)) {
             InventoryManager.Instance().SortItem();
-            InventoryManager.Instance().UIRenender();
+            InventoryManager.Instance().UIRender();
             SelectFirstItem();
         }
     }
@@ -65,7 +65,7 @@ public class InventoryUIManager : SingletonBehaviour<InventoryUIManager> {
     public void CreateItems(List<OwnedItem> OwnedItems) {
         RemovedAllItem();
         foreach (OwnedItem ele in OwnedItems) {
-            if (ele.item.item.cookingStatus == ItemInfo.CookingStatus.Raw) { 
+            if (ele.item.cookingStatus == ItemInfo.CookingStatus.Raw) {
                 AddItems(ele);
             }
         }
@@ -89,7 +89,7 @@ public class InventoryUIManager : SingletonBehaviour<InventoryUIManager> {
         GO_RawItemsList = new List<GameObject>();
     }
     private void AddItems(OwnedItem ownedItem) {
-        GameObject OuterFrame = Instantiate(ownedItem.item.item.OuterFrameGO, transform.position, Quaternion.identity);
+        GameObject OuterFrame = Instantiate(ownedItem.item.OuterFrameGO, transform.position, Quaternion.identity);
         OuterFrame.GetComponent<UI_SlotItem>().SetOwnedItem(ownedItem);
         OuterFrame.transform.SetParent(Content_ItemHandlerRaw.transform, false);
         GO_RawItemsList.Add(OuterFrame);
@@ -118,13 +118,13 @@ public class InventoryUIManager : SingletonBehaviour<InventoryUIManager> {
         }
     }
     private void DeselectAllFrame() {
-        foreach (GameObject ele in GO_RawItemsList) { 
+        foreach (GameObject ele in GO_RawItemsList) {
             ele.GetComponent<UI_SlotItem>().DeactiveSelectedFrame();
         }
     }
     private GameObject SearchItemByOwnedItem(OwnedItem ownedItem) {
         foreach (GameObject ele in GO_RawItemsList) {
-            if (ele.GetComponent<UI_SlotItem>().GetOwnedItem().item.item.ItemCode == ownedItem.item.item.ItemCode) {
+            if (ele.GetComponent<UI_SlotItem>().GetOwnedItem().item.ItemCode == ownedItem.item.ItemCode) {
                 return ele;
             }
         }

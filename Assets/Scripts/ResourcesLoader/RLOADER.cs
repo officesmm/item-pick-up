@@ -10,6 +10,9 @@ public class RLOADER : MonoBehaviour {
 
     //SPRITE
     public static Sprite SPRITE_EMPTY_FRAME;
+    
+    public static CookedItemInfo[]  RAW_ITEMS_LIST;
+    public static CookedItemInfo[]  COOKED_ITEMS_LIST;
     void Awake() {
         //GAME_OBJECT
         GO_EMPTY_FRAME = Resources.Load<GameObject>("UIPrefabs/UI_Slot_Empty");
@@ -19,7 +22,9 @@ public class RLOADER : MonoBehaviour {
         //SPRITE
         SPRITE_EMPTY_FRAME = Resources.Load<Sprite>("Sprites/Frame_ItemFrame01_Empty");
 
-        //SCRIPTABLE_OBJECT
+        //SCRIPTABLE_OBJECT 
+        RAW_ITEMS_LIST = Resources.LoadAll<CookedItemInfo>("Sprites/Items/Raw");
+        COOKED_ITEMS_LIST = Resources.LoadAll<CookedItemInfo>("Sprites/Items/Cooked");
 
     }
 }

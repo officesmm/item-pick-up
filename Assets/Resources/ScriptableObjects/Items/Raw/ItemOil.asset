@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af6ff06a2ee4dde41bb87b96421f514a, type: 3}
-  m_Name: ItemChicken
+  m_Name: ItemOil
   m_EditorClassIdentifier: 
   category: 0
-  frameCategory: 1
-  ItemName: Meal
-  ItemCode: 2
+  frameCategory: 0
+  cookingStatus: 0
+  ItemName: Oil
+  ItemCode: 1
   OuterFrameGO: {fileID: 8099985516172538361, guid: 9322735d9a0dbca4d9fb7a0713aeb504, type: 3}
-  OuterFrameImage: {fileID: 21300000, guid: dd77367546bf4433dbbb2317a935df54, type: 3}
-  ItemIcon: {fileID: 21300000, guid: 98663b0033e5347c1a470a40f89f1f10, type: 3}
-  ItemDescription: Increase Regn Rate
+  OuterFrameImage: {fileID: 21300000, guid: 35d7e6588f1f34db1b9a5e62f4efdf77, type: 3}
+  ItemIcon: {fileID: 21300000, guid: 7f09d3082a97a42e5a902edd5a6e37a4, type: 3}
+  ItemDescription: Oil Create Main Meal
   ItemEffectList:
-  - {fileID: 11400000, guid: 148ba4f796ef87f45ac76287d29a52e8, type: 2}
-  Cost: 40
+  - {fileID: 11400000, guid: 07dd2b89de2b8f14aaa3c11194e5ac0c, type: 2}
+  Cost: 30

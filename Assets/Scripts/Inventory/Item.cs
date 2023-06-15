@@ -23,5 +23,5 @@ public class Item : MonoBehaviour {
     public void HideHighlight() {
         text.text = "";
     }
-    public virtual void Action() {}
+    public virtual void Action(GameObject player) {}
 }

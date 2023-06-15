@@ -13,9 +13,9 @@ public class PanelItemView : PanelItem {
         GameObject GO_SlotItemEffect = Instantiate(Pref_SlotItemEffect, transform.position, Quaternion.identity);
         GO_SlotItemEffect.transform.SetParent(Panel_ItemEffect.transform, false);
         GO_SlotItemEffect.GetComponent<UI_SlotItemEffect>().Init(
-            m_OwnedItem.item.item.ItemEffectList[0].EffectIcon,
-            m_OwnedItem.item.item.ItemEffectList[0].EffectTitle,
-            m_OwnedItem.item.item.ItemEffectList[0].EffectDescription
+            m_OwnedItem.item.ItemEffectList[0].EffectIcon,
+            m_OwnedItem.item.ItemEffectList[0].EffectTitle,
+            m_OwnedItem.item.ItemEffectList[0].EffectDescription
             );
     }
 

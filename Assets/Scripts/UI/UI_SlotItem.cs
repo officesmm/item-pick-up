@@ -19,8 +19,8 @@ public class UI_SlotItem : MonoBehaviour {
 
     public void SetOwnedItem(OwnedItem ownedItem) {
         m_OwnedItem = ownedItem;
-        IMG_Frame.sprite = ownedItem.item.item.OuterFrameImage;
-        IMG_Icon.sprite = ownedItem.item.item.ItemIcon;
+        IMG_Frame.sprite = ownedItem.item.OuterFrameImage;
+        IMG_Icon.sprite = ownedItem.item.ItemIcon;
         TXT_ItemCount.text = ownedItem.count.ToString();
     }
 

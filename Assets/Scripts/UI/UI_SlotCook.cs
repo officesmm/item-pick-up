@@ -20,16 +20,16 @@ public class UI_SlotCook : MonoBehaviour {
         PreCookItemAdded = null;
         added = false;
         tempColor.a = 0;
-        BTN_Action.onClick.AddListener(delegate { OnClickAddorRemove(); });
+        BTN_Action.onClick.AddListener(delegate { OnClickAddOrRemove(); });
     }
-    private void OnClickAddorRemove() {
+    private void OnClickAddOrRemove() {
         OwnedItem selectedItem = InventoryUIManager.Instance().GetCurrentSelectedOwnedItem();
         
         if (selectedItem != null) {
-            if (SlotFrameCategory == selectedItem.item.item.frameCategory) {
+            if (SlotFrameCategory == selectedItem.item.frameCategory) {
                 if (!added) {
                     PreCookItemAdded = selectedItem;
-                    IMG_Icon.sprite = PreCookItemAdded.item.item.ItemIcon;
+                    IMG_Icon.sprite = PreCookItemAdded.item.ItemIcon;
                     IMG_Icon.color = Color.white;
                     GO_SignAdd.SetActive(false);
                     GO_SignRemove.SetActive(true);

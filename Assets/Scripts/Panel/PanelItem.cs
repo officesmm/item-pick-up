@@ -20,13 +20,13 @@ public class PanelItem : MonoBehaviour {
         OnClickedDisplay();
     }
     public virtual void OnClickedDisplay() {
-        IMG_OuterFrame.sprite = m_OwnedItem.item.item.OuterFrameImage;
-        IMG_ItemImage.sprite = m_OwnedItem.item.item.ItemIcon;
+        IMG_OuterFrame.sprite = m_OwnedItem.item.OuterFrameImage;
+        IMG_ItemImage.sprite = m_OwnedItem.item.ItemIcon;
         TMP_ItemCount.text = m_OwnedItem.count.ToString();
 
-        TMP_ItemCategory.text = m_OwnedItem.item.item.category.ToString();
-        TMP_ItemName.text = m_OwnedItem.item.item.ItemName;
-        TMP_ItemDescription.text = m_OwnedItem.item.item.ItemDescription;
+        TMP_ItemCategory.text = m_OwnedItem.item.category.ToString();
+        TMP_ItemName.text = m_OwnedItem.item.ItemName;
+        TMP_ItemDescription.text = m_OwnedItem.item.ItemDescription;
     }
 
     public virtual void ClearAllPreset() {

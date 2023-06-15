@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af6ff06a2ee4dde41bb87b96421f514a, type: 3}
-  m_Name: ItemFruit
+  m_Name: ItemLeaf
   m_EditorClassIdentifier: 
   category: 0
   frameCategory: 2
+  cookingStatus: 0
   ItemName: Leaf
-  ItemCode: 3
+  ItemCode: 9
   OuterFrameGO: {fileID: 8099985516172538361, guid: 9322735d9a0dbca4d9fb7a0713aeb504, type: 3}
   OuterFrameImage: {fileID: 21300000, guid: e6eea4f7cbb9f46f79c0fe06180fa5b3, type: 3}
   ItemIcon: {fileID: 21300000, guid: 2e57f9725042d4e3aa9ec75259c6c3c0, type: 3}
   ItemDescription: Basic Item to sell
   ItemEffectList:
   - {fileID: 11400000, guid: c8d72396f42c77a4ca33fec88c0995cf, type: 2}
-  Cost: 40
+  Cost: 20

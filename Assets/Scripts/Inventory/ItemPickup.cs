@@ -20,16 +20,14 @@ public class ItemPickup : MonoBehaviour {
             Item i = currentInteractable.GetComponent<Item>();
             if (Input.GetKeyDown(KeyCode.Space)) {
                 if (i.item.category == ItemInfo.Category.Pick) {
-                    InventoryManager.Instance().AddOwnedItem(i);
+                    InventoryManager.Instance().AddOwnedItem(i.item);
                     i.RemoveItem();
                 } else if (i.item.category == ItemInfo.Category.Cook) {
                     InventoryUIManager.Instance().ShowPanel("toCook");
                 } else if (i.item.category ==   ItemInfo.Category.Sell) {
                     InventoryUIManager.Instance().ShowPanel("toSell");
-                } else if (i.item.category == ItemInfo.Category.Door) {
-                    i.Action();
-                } else if (i.item.category == ItemInfo.Category.Rotate) {
-                    i.Action();
+                } else if (i.item.category == ItemInfo.Category.Interaction) {
+                    i.Action(gameObject);
                 }
 
             }

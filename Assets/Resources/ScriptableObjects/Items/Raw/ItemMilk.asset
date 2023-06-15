@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af6ff06a2ee4dde41bb87b96421f514a, type: 3}
-  m_Name: ItemOil
+  m_Name: ItemMilk
   m_EditorClassIdentifier: 
   category: 0
   frameCategory: 0
-  ItemName: Oil
-  ItemCode: 1
+  cookingStatus: 0
+  ItemName: Milk
+  ItemCode: 2
   OuterFrameGO: {fileID: 8099985516172538361, guid: 9322735d9a0dbca4d9fb7a0713aeb504, type: 3}
   OuterFrameImage: {fileID: 21300000, guid: 35d7e6588f1f34db1b9a5e62f4efdf77, type: 3}
-  ItemIcon: {fileID: 21300000, guid: 7f09d3082a97a42e5a902edd5a6e37a4, type: 3}
-  ItemDescription: Oil Create Main Meal
+  ItemIcon: {fileID: 21300000, guid: 8a34905290cbb491a8b6e37adc6b2a96, type: 3}
+  ItemDescription: Milk Create Elixir
   ItemEffectList:
   - {fileID: 11400000, guid: 07dd2b89de2b8f14aaa3c11194e5ac0c, type: 2}
-  Cost: 40
+  Cost: 25
