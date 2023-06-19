@@ -23,8 +23,8 @@ public class RLOADER : MonoBehaviour {
         SPRITE_EMPTY_FRAME = Resources.Load<Sprite>("Sprites/Frame_ItemFrame01_Empty");
 
         //SCRIPTABLE_OBJECT 
-        RAW_ITEMS_LIST = Resources.LoadAll<CookedItemInfo>("Sprites/Items/Raw");
-        COOKED_ITEMS_LIST = Resources.LoadAll<CookedItemInfo>("Sprites/Items/Cooked");
+        RAW_ITEMS_LIST = Resources.LoadAll<CookedItemInfo>("ScriptableObjects/Items/Raw");
+        COOKED_ITEMS_LIST = Resources.LoadAll<CookedItemInfo>("ScriptableObjects/Items/Cooked");
 
     }
 }

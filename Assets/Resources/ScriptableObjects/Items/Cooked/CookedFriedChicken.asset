@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2b2ea36cf6a4cb4491c04da597a215b, type: 3}
-  m_Name: FriedChicken
+  m_Name: CookedFriedChicken
   m_EditorClassIdentifier: 
   category: 0
-  frameCategory: 0
-  cookingStatus: 0
+  frameCategory: 1
+  cookingStatus: 1
   ItemName: FriedChicken
   ItemCode: 103
   OuterFrameGO: {fileID: 8099985516172538361, guid: 9322735d9a0dbca4d9fb7a0713aeb504, type: 3}

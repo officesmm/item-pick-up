@@ -19,7 +19,7 @@ public class InventoryUIManager : SingletonBehaviour<InventoryUIManager> {
     private OwnedItem CurrentSelectedOwnedItem;
 
     public List<GameObject> GO_RawItemsList = new List<GameObject>();
-    void Update() {
+    private void Update() {
         if (Input.GetKeyDown(KeyCode.Q)) {
             Panel_Inventory.SetActive(!Panel_Inventory.activeSelf);
             Panel_ActionView.SetActive(true);
@@ -52,8 +52,8 @@ public class InventoryUIManager : SingletonBehaviour<InventoryUIManager> {
                 Panel_ActionCook.SetActive(false);
                 Panel_ActionView.SetActive(false);
                 Panel_ActionSell.SetActive(true);
-                //panelAction = Panel_ActionSell.GetComponent<PanelItemSell>();
-                //panelAction.ClearAllPreset();
+                panelAction = Panel_ActionSell.GetComponent<PanelItemSell>();
+                panelAction.ClearAllPreset();
                 SelectFirstItem();
                 break;
             default:
@@ -65,7 +65,7 @@ public class InventoryUIManager : SingletonBehaviour<InventoryUIManager> {
     public void CreateItems(List<OwnedItem> OwnedItems) {
         RemovedAllItem();
         foreach (OwnedItem ele in OwnedItems) {
-            if (ele.item.cookingStatus == ItemInfo.CookingStatus.Raw) {
+            if (ele.item.cookingStatus == ItemInfo.CookingStatus.Raw || ele.item.cookingStatus == ItemInfo.CookingStatus.Cooked) {
                 AddItems(ele);
             }
         }

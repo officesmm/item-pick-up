@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af6ff06a2ee4dde41bb87b96421f514a, type: 3}
   m_Name: Shop
   m_EditorClassIdentifier: 
-  category: 4
+  category: 3
+  frameCategory: 0
+  cookingStatus: 0
   ItemName: Shop
   ItemCode: 2002
-  OuterFrame: {fileID: 0}
+  OuterFrameGO: {fileID: 0}
+  OuterFrameImage: {fileID: 0}
   ItemIcon: {fileID: 0}
   ItemDescription: 
   ItemEffectList: []

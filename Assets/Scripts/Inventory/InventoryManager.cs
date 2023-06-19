@@ -14,8 +14,6 @@ public class InventoryManager : SingletonBehaviour<InventoryManager> {
         else {
             ownedItems.Add(new OwnedItem(item, 1));
         }
-
-        UIRender();
     }
 
     public void RemoveItem(ItemInfo item) {
@@ -39,8 +37,15 @@ public class InventoryManager : SingletonBehaviour<InventoryManager> {
         }
         return null;
     }
-    
-    public ItemInfo SearchItemByID(int itemID) {
+    public ItemInfo SearchItemFromOwnedByID(int itemID) {
+        for (int j = 0; j < ownedItems.Count; j++) {
+            if (ownedItems[j].item.ItemCode == itemID) {
+                return ownedItems[j].item;
+            }
+        }
+        return null;
+    }
+    public ItemInfo SearchItemFromAllByID(int itemID) {
         for (int j = 0; j < RLOADER.RAW_ITEMS_LIST.Length; j++) {
             if (RLOADER.RAW_ITEMS_LIST[j].ItemCode == itemID) {
                 return RLOADER.RAW_ITEMS_LIST[j];
@@ -64,14 +69,16 @@ public class InventoryManager : SingletonBehaviour<InventoryManager> {
     public void Cooking(List<int> PreCookItemsList) {
         for (int i = 0; i < RLOADER.COOKED_ITEMS_LIST.Length; i++) {
             if (PreCookItemsList.AreListsEqual(RLOADER.COOKED_ITEMS_LIST[i].RequiredItemIDList)) {
-                AddOwnedItem(RLOADER.COOKED_ITEMS_LIST[i]);
                 foreach (int ele in PreCookItemsList) {
-                    RemoveItem(SearchItemByID(ele));
-                }
+                    RemoveItem(SearchItemFromOwnedByID(ele));
+                } 
+                AddOwnedItem(RLOADER.COOKED_ITEMS_LIST[i]);
                 break;
             }
         }
         UIRender();
+        InventoryUIManager.Instance().BTN_CloseInventory();
+        // Show Animation that Owning Item 
     }
 
     public void UIRender() {

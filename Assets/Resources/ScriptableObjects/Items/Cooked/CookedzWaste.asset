@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2b2ea36cf6a4cb4491c04da597a215b, type: 3}
+  m_Name: CookedzWaste
+  m_EditorClassIdentifier: 
+  category: 0
+  frameCategory: 0
+  cookingStatus: 1
+  ItemName: Waste
+  ItemCode: 0
+  OuterFrameGO: {fileID: 8099985516172538361, guid: 9322735d9a0dbca4d9fb7a0713aeb504, type: 3}
+  OuterFrameImage: {fileID: 21300000, guid: 84063999b9e1741d099c1d8f7bbc0f7a, type: 3}
+  ItemIcon: {fileID: 21300000, guid: e5e83c45f0496d24e9ffe21c0c7079e6, type: 3}
+  ItemDescription: This is fired with higher healing effect.
+  ItemEffectList:
+  - {fileID: 11400000, guid: bad406f4282d4d0448cdcbde21444b41, type: 2}
+  Cost: 20
+  RequiredItemIDList: 

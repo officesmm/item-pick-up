@@ -21,6 +21,7 @@ public class ItemPickup : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.Space)) {
                 if (i.item.category == ItemInfo.Category.Pick) {
                     InventoryManager.Instance().AddOwnedItem(i.item);
+                    InventoryManager.Instance().UIRender();
                     i.RemoveItem();
                 } else if (i.item.category == ItemInfo.Category.Cook) {
                     InventoryUIManager.Instance().ShowPanel("toCook");
